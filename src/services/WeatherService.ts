@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosStatic } from "axios";
+import axios, { AxiosInstance, AxiosResponse } from "axios";
 
 import ForecastModel from "./models/ForecastModel";
 

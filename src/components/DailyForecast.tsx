@@ -25,22 +25,28 @@ export default function DailyForecast() {
 
   if (forecastList != null) {
     return (
-      <>
-        <div>Daily Forecast</div>
+      <div className="p-5">
+        <div className="pb-5">
+          <div className="text-4xl">Daily Forecast</div>
+          <p>Current Location: {locationInfo.lat}, {locationInfo.long}</p>
+        </div>
+        <div className="grid gap-5">
         {forecastList.map(fc => {
           return(
             <OneDayForecast forecast={fc}></OneDayForecast>
           );
         })}
-      </>
+        </div>
+      </div>
     );
   }
-  return <>
-    <div>uh oh</div>
-    <div>
-      There was an error retrieving weather forecast. Error Message: {JSON.stringify(errorRef.current)}
-    </div>
-  </>;
-
+  else if(errorRef.current != null) {
+    return <>
+      <div>uh oh</div>
+      <div>
+        There was an error retrieving weather forecast. Error Message: {JSON.stringify(errorRef.current)}
+      </div>
+    </>;
+  }
 }
 
